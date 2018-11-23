@@ -3,17 +3,17 @@ default: &default
   encoding: utf8mb4
   collation: utf8mb4_unicode_ci
   pool: 5
-  database: dentis_code
-  host: localhost
-  username: root
-  password: violet
+  database: <%= ENV["DATABASE_NAME"] %>
+  host: <%= ENV["DATABASE_HOSTNAME"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
 
 development:
   <<: *default
 
 test:
   <<: *default
-  database: dentist_code_test
+  database: ENV["DATABASE_NAME"]+"test"
 
 staging:
   <<: *default
